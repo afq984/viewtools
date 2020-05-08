@@ -24,6 +24,9 @@ class SequenceView:
             f'{self.__class__.__name__} indices must be integers or slices, '
             f'not {type(item).__name__}')
 
+    def __iter__(self):
+        return map(self._seq.__getitem__, self._range)
+
     def __len__(self):
         return len(self._range)
 
